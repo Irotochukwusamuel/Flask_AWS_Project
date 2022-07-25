@@ -13,9 +13,9 @@ class Cognito:
     """
 
     def __init__(self):
-        self.client_id = '5gdcl61lrfj0tuup7rmlb5tl7p'  # the user pool client id
-        self.pool_id ='us-east-1_hPBikDQe1'  # the pool id
-        self.client = boto3.client('cognito-idp', region_name='us-east-1')
+        self.client_id = os.getenv('CLIENT_ID') or  # the user pool client id
+        self.pool_id = os.getenv('Pool_ID')  # the pool id
+        self.client = boto3.client('cognito-idp', region_name=os.getenv('Region'))
 
     def SignUp(self, email, password):
 
