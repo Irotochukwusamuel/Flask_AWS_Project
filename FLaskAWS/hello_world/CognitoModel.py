@@ -13,7 +13,7 @@ class Cognito:
     """
 
     def __init__(self):
-        self.client_id = os.getenv('CLIENT_ID') or  # the user pool client id
+        self.client_id = os.getenv('CLIENT_ID')  # the user pool client id
         self.pool_id = os.getenv('Pool_ID')  # the pool id
         self.client = boto3.client('cognito-idp', region_name=os.getenv('Region'))
 
